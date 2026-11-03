@@ -161,10 +161,10 @@ export GEMINI_API_KEY="sizin_gemini_api_anahtariniz"
 docker compose up --build -d
 ```
 
-Konteynerler ayağa kalktığında yerel ortamda aşağıdaki portlar üzerinden hizmet verir:
-- **Backend REST API:** `http://localhost:8080/api` (Swagger UI: `/api/swagger-ui.html`)
-- **AI Mikroservisi:** `http://localhost:8000` (OpenAPI Docs: `/docs`)
-- **PostgreSQL Veritabanı:** `localhost:5432` (`fatura_db`)
+Konteynerler ayağa kalktığında servisler aşağıdaki portlar ve dokümantasyon dizinleri üzerinden hizmet verir:
+- **Backend REST API:** Port `8080` (Ana dizin: `/api` • Swagger UI: `/api/swagger-ui.html`)
+- **AI Mikroservisi:** Port `8000` (İnteraktif OpenAPI Dokümantasyonu: `/docs`)
+- **PostgreSQL Veritabanı:** Port `5432` (Veritabanı: `fatura_db`)
 
 ### Seçenek 2: Kaynak Koddan Manuel Çalıştırma
 
@@ -203,3 +203,4 @@ flutter run
 ## 📄 Lisans
 
 Bu proje **MIT Lisansı** altında lisanslanmıştır. Detaylar için [`LICENSE`](./LICENSE) ve [`5.DOCUMENTS/Documents/License_Information.txt`](./5.DOCUMENTS/Documents/License_Information.txt) dosyalarını inceleyebilirsiniz.
+

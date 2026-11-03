@@ -171,10 +171,10 @@ export GEMINI_API_KEY="your_gemini_api_key_here"
 docker compose up --build -d
 ```
 
-Once the containers are running locally, the services listen on the following local ports:
-- **Backend REST API:** `http://localhost:8080/api` (Swagger UI: `/api/swagger-ui.html`)
-- **AI Microservice:** `http://localhost:8000` (OpenAPI Docs: `/docs`)
-- **PostgreSQL Database:** `localhost:5432` (`fatura_db`)
+Once the containers are running, the services expose the following ports and documentation paths:
+- **Backend REST API:** Port `8080` (Base path: `/api` • Swagger UI: `/api/swagger-ui.html`)
+- **AI Microservice:** Port `8000` (Interactive OpenAPI Docs: `/docs`)
+- **PostgreSQL Database:** Port `5432` (Database: `fatura_db`)
 
 ### Option 2: Run Manually from Source
 
