@@ -1,0 +1,152 @@
+# KURULUM TALİMATLARI
+## Yapay Zekâ Destekli Harcama ve Fatura Analiz Sistemi
+
+**Versiyon:** 1.0  
+**Tarih:** Mayıs 2026  
+**Geliştirici:** Uğur Avşar
+
+---
+
+## 1. SİSTEM MİMARİSİ
+
+Sistem üç bileşenden oluşmaktadır:
+
+| Bileşen | Teknoloji | Port |
+|---------|-----------|------|
+| Mobil Uygulama | Flutter (Android APK) | — |
+| Backend API | Spring Boot 3 (Java) | 8080 |
+| AI Mikroservisi | Python Flask | 5000 |
+| Veritabanı | PostgreSQL | 5432 |
+
+---
+
+## 2. GELİŞTİRİCİ KURULUMU (Kaynak Koddan)
+
+### 2.1 Gereksinimler
+
+- Java 17+
+- Python 3.10+
+- Flutter SDK 3.x
+- PostgreSQL 14+
+- Google Gemini API Key
+
+### 2.2 Veritabanı Kurulumu
+
+```sql
+-- PostgreSQL'de veritabanı oluştur
+CREATE DATABASE fatura_analiz;
+```
+
+```bash
+# init-db.sql dosyasını çalıştır
+psql -U postgres -d fatura_analiz -f init-db.sql
+```
+
+### 2.3 Backend API (Spring Boot)
+
+```bash
+cd backend-api
+
+# application.properties dosyasını düzenle
+# src/main/resources/application.properties
+
+# Çalıştır
+./mvnw spring-boot:run
+```
+
+`application.properties` içinde düzenlenmesi gerekenler:
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/fatura_analiz
+spring.datasource.username=postgres
+spring.datasource.password=SIZIN_SIFRENIZ
+jwt.secret=SIZIN_JWT_SECRET_ANAHTARINIZ
+spring.mail.username=SIZIN_EMAIL_ADRESINIZ
+spring.mail.password=SIZIN_EMAIL_SIFRENIZ
+```
+
+### 2.4 AI Mikroservisi (Python Flask)
+
+```bash
+cd ai-service
+
+# Sanal ortam oluştur
+python -m venv venv
+venv\Scripts\activate   # Windows
+source venv/bin/activate  # Linux/Mac
+
+# Bağımlılıkları yükle
+pip install -r requirements.txt
+
+# .env dosyası oluştur
+echo GEMINI_API_KEY=SIZIN_API_KEYINIZ > .env
+
+# Çalıştır
+python main.py
+```
+
+### 2.5 Mobil Uygulama (Flutter)
+
+```bash
+cd mobile_app
+
+# Bağımlılıkları yükle
+flutter pub get
+
+# lib/core/constants/api_constants.dart dosyasında API adresini güncelle
+# baseUrl = 'http://SUNUCU_IP:8080'
+
+# Android APK oluştur
+flutter build apk --release
+
+# APK konumu:
+# build/app/outputs/flutter-apk/app-release.apk
+```
+
+---
+
+## 3. HAZIR APK KURULUMU (Son Kullanıcı)
+
+1. `Uygulama/FaturaAnaliz.apk` dosyasını Android cihaza kopyalayın
+2. `Ayarlar > Güvenlik > Bilinmeyen Kaynaklar` → **Açık** yapın
+3. Dosya yöneticisinden APK'ya dokunun → **Yükle**
+4. Kurulum tamamlandıktan sonra uygulamayı açın
+
+> **Not:** Sunucu (backend + AI servisi) çalışır durumda olmalıdır. Sunucu adresi APK içinde sabit kodlanmıştır.
+
+---
+
+## 4. DOCKER İLE KURULUM (Opsiyonel)
+
+```bash
+# Tüm servisleri Docker ile başlat
+docker-compose up -d
+
+# Servisleri durdur
+docker-compose down
+```
+
+---
+
+## 5. SERVİSLERİ BAŞLATMA (Windows)
+
+```powershell
+# Tüm servisleri başlat
+.\start-all.ps1
+
+# Servisleri durdur
+.\stop.ps1
+```
+
+---
+
+## 6. API TEST
+
+Backend çalışıyor mu kontrol et:
+```
+GET http://localhost:8080/api/health
+```
+
+AI servisi çalışıyor mu kontrol et:
+```
+GET http://localhost:5000/health
+```

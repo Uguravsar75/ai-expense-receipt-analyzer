@@ -1,0 +1,48 @@
+# ========================================
+# macOS / Windows / Linux OS Files
+# ========================================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ========================================
+# Environment & Secrets
+# ========================================
+.env
+*.env
+!.env.example
+
+# ========================================
+# Python (AI Service)
+# ========================================
+**/venv/
+**/.venv/
+**/__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# ========================================
+# Java / Spring Boot (Backend API)
+# ========================================
+**/target/
+**/data/*.db
+**/data/*.mv.db
+**/data/*.trace.db
+**/data/*.lock.db
+*.log
+
+# ========================================
+# Flutter / Dart (Mobile App)
+# ========================================
+**/build/
+**/.dart_tool/
+**/.gradle/
+**/ephemeral/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/Pods/
+*.iml
+.idea/
+.vscode/
+

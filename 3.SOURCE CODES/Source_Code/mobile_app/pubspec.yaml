@@ -1,0 +1,40 @@
+name: mobile_app
+description: "Yapay Zeka Destekli Fatura Analiz Mobil Uygulamasi"
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  http: ^1.2.2
+  shared_preferences: ^2.2.2
+  intl: any
+
+  # 🔐 JWT decode (USER ID almak için - KRİTİK)
+  jwt_decode: ^0.3.1
+
+  # 📊 Grafikler (AŞAMA 8)
+  fl_chart: ^0.66.2
+
+  flutter_localizations:
+    sdk: flutter
+  image_picker: ^1.2.1
+  file_picker: ^8.1.2
+  http_parser: ^4.0.2
+  pdf: ^3.11.1
+  printing: ^5.13.1
+  path_provider: ^2.1.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true

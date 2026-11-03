@@ -1,0 +1,121 @@
+# KULLANIM KILAVUZU
+## Yapay Zekâ Destekli Harcama ve Fatura Analiz Sistemi
+
+**Versiyon:** 1.0  
+**Tarih:** Mayıs 2026  
+**Geliştirici:** Uğur Avşar  
+**Danışman:** Dr. Büşra Takgil  
+**Düzce Üniversitesi – Bilgisayar Mühendisliği**
+
+---
+
+## 1. GİRİŞ
+
+Bu uygulama, kullanıcıların kişisel harcamalarını takip etmesini, faturalarını yapay zekâ ile analiz etmesini ve bütçe yönetimi yapmasını sağlayan mobil tabanlı bir sistemdir. Android cihazlarda çalışmaktadır.
+
+---
+
+## 2. SİSTEM GEREKSİNİMLERİ
+
+| Gereksinim | Detay |
+|------------|-------|
+| İşletim Sistemi | Android 8.0 (API 26) ve üzeri |
+| İnternet Bağlantısı | Gerekli (API ve AI servisi için) |
+| Depolama Alanı | En az 50 MB boş alan |
+| Kamera | Fatura fotoğrafı çekmek için gerekli |
+
+---
+
+## 3. KURULUM
+
+1. `FaturaAnaliz.apk` dosyasını Android cihaza kopyalayın
+2. Cihaz ayarlarından **"Bilinmeyen Kaynaklardan Yükleme"** izni verin:  
+   `Ayarlar > Güvenlik > Bilinmeyen Kaynaklar > Açık`
+3. APK dosyasına dokunarak kurulumu başlatın
+4. **"Yükle"** butonuna basın ve kurulumun tamamlanmasını bekleyin
+
+---
+
+## 4. UYGULAMANIN KULLANIMI
+
+### 4.1 Kayıt ve Giriş
+
+- Uygulamayı açın
+- **"Kayıt Ol"** butonuna tıklayın
+- Ad, soyad, e-posta ve şifre bilgilerini girin
+- E-posta adresinize gelen doğrulama bağlantısına tıklayın
+- **"Giriş Yap"** ekranından e-posta ve şifrenizle giriş yapın
+
+### 4.2 Harcama Ekleme
+
+- Ana ekranda **"+"** butonuna tıklayın
+- Harcama tutarını, kategorisini ve açıklamasını girin
+- **"Kaydet"** butonuna basın
+
+### 4.3 Fatura Fotoğrafı ile Harcama Ekleme (AI)
+
+- Ana ekranda **"İçe Aktar"** butonuna tıklayın
+- **"Fotoğraf Çek"** veya **"Galeriden Seç"** seçeneğini seçin
+- Fatura fotoğrafını çekin veya seçin
+- Google Gemini AI otomatik olarak fatura bilgilerini analiz eder
+- Çıkan sonucu onaylayın ve kaydedin
+
+### 4.4 CSV/XLSX Dosyasından Toplu İçe Aktarım
+
+- **"İçe Aktar"** → **"Dosyadan Yükle"** seçeneğini seçin
+- CSV veya XLSX dosyasını seçin
+- AI her satır için kategori tahmini yapar
+- Önizlemeyi kontrol edip onaylayın
+
+### 4.5 İstatistikler ve Raporlar
+
+- Alt menüden **"İstatistikler"** sekmesine gidin
+- **Özet** sekmesi: Kategori bazlı pasta grafik ve çubuk grafik
+- **AI Analiz** sekmesi: Yapay zekâ yorumu ve anomali tespiti
+- **Bütçe** sekmesi: Kategori bazlı limit takibi
+- **Aylık** sekmesi: Ay karşılaştırmalı harcama analizi
+
+### 4.6 Bütçe Limiti Belirleme
+
+- **"Bütçe"** sekmesine gidin
+- **"Limit Ekle"** butonuna tıklayın
+- Kategori, tutar ve periyot (günlük/haftalık/aylık) seçin
+- Kaydedin — limit aşıldığında uyarı alırsınız
+
+### 4.7 PDF Rapor Alma
+
+- **"Profil"** sekmesine gidin
+- **"PDF Rapor İndir"** butonuna tıklayın
+- Aylık harcama raporu PDF olarak cihaza kaydedilir
+
+### 4.8 Ayarlar
+
+- **"Profil"** sekmesinden:
+  - Dil değiştirme: Türkçe / İngilizce
+  - Tema değiştirme: Aydınlık / Karanlık mod
+  - Şifre değiştirme
+  - Çıkış yapma
+
+---
+
+## 5. SIKÇA SORULAN SORULAR
+
+**S: Uygulama internetsiz çalışır mı?**  
+C: Hayır. Yapay zekâ analizi ve veri senkronizasyonu için internet bağlantısı gereklidir.
+
+**S: Verilerim güvende mi?**  
+C: Tüm veriler JWT kimlik doğrulama ile korunmaktadır. Şifreler BCrypt ile hashlenerek saklanır.
+
+**S: Hangi fatura formatları destekleniyor?**  
+C: Türkçe veya İngilizce yazılmış, okunaklı fotoğrafı olan her türlü fatura desteklenmektedir.
+
+**S: PDF raporu nereye kaydedilir?**  
+C: Android cihazda `İndirilenler` (Downloads) klasörüne kaydedilir.
+
+---
+
+## 6. İLETİŞİM
+
+Uğur Avşar  
+E-posta: uguravsar10@gmail.com  
+Düzce Üniversitesi, Bilgisayar Mühendisliği Bölümü

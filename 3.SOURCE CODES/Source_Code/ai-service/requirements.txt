@@ -1,0 +1,16 @@
+fastapi>=0.110.0
+uvicorn>=0.27.0
+python-dotenv>=1.0.0
+numpy>=2.0.0
+pandas>=2.2.0
+scikit-learn>=1.5.0
+joblib>=1.3.2
+python-multipart>=0.0.6
+pydantic>=2.0.0
+statsmodels>=0.14.0
+python-json-logger>=2.0.7
+# Gemini Vision (fiş/fatura analizi)
+google-genai>=1.0.0
+# EasyOCR fallback (Gemini yoksa)
+easyocr>=1.7.0
+Pillow>=10.0.0
