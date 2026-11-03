@@ -385,7 +385,9 @@ class _ImportScreenState extends State<ImportScreen>
             Row(children: [
               Icon(icon, color: color, size: 20),
               const SizedBox(width: 8),
-              Text(title, style: TextStyle(fontWeight: FontWeight.bold, color: color)),
+              Expanded(
+                child: Text(title, style: TextStyle(fontWeight: FontWeight.bold, color: color)),
+              ),
             ]),
             const SizedBox(height: 8),
             ...bullets.map((b) => Padding(
